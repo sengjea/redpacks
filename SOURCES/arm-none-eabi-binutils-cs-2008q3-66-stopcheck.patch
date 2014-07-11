@@ -1,0 +1,17 @@
+diff -r -U5 binutils-stable/libiberty/testsuite/Makefile.in binutils-stable-p/libiberty/testsuite/Makefile.in
+--- binutils-stable/libiberty/testsuite/Makefile.in	2008-11-13 08:11:09.000000000 -0500
++++ binutils-stable-p/libiberty/testsuite/Makefile.in	2014-07-11 09:52:54.179238348 -0400
+@@ -41,11 +41,12 @@
+ INCDIR=$(srcdir)/../$(MULTISRCTOP)../include
+ 
+ all:
+ 
+ # CHECK is set to "really_check" or the empty string by configure.
+-check: @CHECK@
++check:
++#@CHECK@
+ 
+ really-check: check-cplus-dem check-pexecute check-expandargv
+ 
+ # Run some tests of the demangler.
+ check-cplus-dem: test-demangle $(srcdir)/demangle-expected

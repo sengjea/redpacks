@@ -1,0 +1,89 @@
+diff -up binutils-2013.05/gas/doc/c-arc.texi.fixtex binutils-2013.05/gas/doc/c-arc.texi
+--- binutils-2013.05/gas/doc/c-arc.texi.fixtex	2013-08-21 20:23:28.174087245 +0200
++++ binutils-2013.05/gas/doc/c-arc.texi	2013-08-21 20:23:44.770759308 +0200
+@@ -220,7 +220,7 @@ The extension instructions are not macro
+ encodings for use of these instructions according to the specification
+ by the user.  The parameters are:
+ 
+-@table @bullet
++@table @code
+ @item @var{name}
+ Name of the extension instruction
+ 
+diff -up binutils-2013.05/gas/doc/c-arm.texi.fixtex binutils-2013.05/gas/doc/c-arm.texi
+--- binutils-2013.05/gas/doc/c-arm.texi.fixtex	2013-08-21 20:24:50.902452778 +0200
++++ binutils-2013.05/gas/doc/c-arm.texi	2013-08-21 20:30:37.344612385 +0200
+@@ -20,6 +20,7 @@
+ * ARM Options::              Options
+ * ARM Syntax::               Syntax
+ * ARM Floating Point::       Floating Point
++* ARM Relocations::          ARM relocation generation
+ * ARM Directives::           ARM Machine Directives
+ * ARM Opcodes::              Opcodes
+ * ARM Mapping Symbols::      Mapping Symbols
+@@ -376,7 +377,6 @@ features.  The default is to warn.
+ * ARM-Instruction-Set::      Instruction Set
+ * ARM-Chars::                Special Characters
+ * ARM-Regs::                 Register Names
+-* ARM-Relocations::	     Relocations
+ * ARM-Neon-Alignment::	     NEON Alignment Specifiers
+ @end menu
+ 
+@@ -388,7 +388,7 @@ ARM and THUMB instructions had their own
+ @code{unified} syntax, which can be selected via the @code{.syntax}
+ directive, and has the following main features:
+ 
+-@table @bullet
++@table @code
+ @item
+ Immediate operands do not require a @code{#} prefix.
+ 
+@@ -471,8 +471,8 @@ so @samp{: @var{align}} is used instead.
+ @cindex ARM floating point (@sc{ieee})
+ The ARM family uses @sc{ieee} floating-point numbers.
+ 
+-@node ARM-Relocations
+-@subsection ARM relocation generation
++@node ARM Relocations
++@section ARM relocation generation
+ 
+ @cindex data relocations, ARM
+ @cindex ARM data relocations
+diff -up binutils-2013.05/gas/doc/c-tic54x.texi.fixtex binutils-2013.05/gas/doc/c-tic54x.texi
+--- binutils-2013.05/gas/doc/c-tic54x.texi.fixtex	2013-08-21 20:26:45.803183382 +0200
++++ binutils-2013.05/gas/doc/c-tic54x.texi	2013-08-21 20:28:16.127399917 +0200
+@@ -109,7 +109,7 @@ In this example, x is replaced with SYM2
+ is replaced with x.  At this point, x has already been encountered
+ and the substitution stops.
+ 
+-@smallexample @code
++@smallexample @code{*}
+  .asg   "x",SYM1
+  .asg   "SYM1",SYM2
+  .asg   "SYM2",x
+@@ -126,14 +126,14 @@ Substitution may be forced in situations
+ ambiguous by placing colons on either side of the subsym.  The following
+ code:
+ 
+-@smallexample @code
++@smallexample @code{*}
+  .eval  "10",x
+ LAB:X:  add     #x, a
+ @end smallexample
+ 
+ When assembled becomes:
+ 
+-@smallexample @code
++@smallexample @code{*}
+ LAB10  add     #10, a
+ @end smallexample
+ 
+@@ -309,7 +309,7 @@ The @code{LDX} pseudo-op is provided for
+ of a label or address.  For example, if an address @code{_label} resides
+ in extended program memory, the value of @code{_label} may be loaded as
+ follows:
+-@smallexample @code
++@smallexample @code{*}
+  ldx     #_label,16,a    ; loads extended bits of _label
+  or      #_label,a       ; loads lower 16 bits of _label
+  bacc    a               ; full address is in accumulator A
